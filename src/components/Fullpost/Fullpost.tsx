@@ -9,7 +9,8 @@ class FullPost extends Component<{},{}> {
     state={
        postId:"",
        loadedPost: {title:"",body:""},
-       fullPostData:false
+       fullPostData:false,
+       queryParam:[]
     }
 
     constructor(props:any)
@@ -17,10 +18,17 @@ class FullPost extends Component<{},{}> {
      
        super(props);
        this.state.postId=props.match.params.id;
+       this.state.queryParam=props.location.search;
        
     }
 
-    componentDidMount(){        
+    componentDidMount(){ 
+        
+       const query:any = new URLSearchParams(this.state.queryParam);
+        for (let param of query.entries()) {
+            console.log(param[1]); 
+        }
+
         axios.get("https://jsonplaceholder.typicode.com/posts/"+this.state.postId)
         .then(response =>{
                 this.setState({fullPostData:true,loadedPost:response.data});

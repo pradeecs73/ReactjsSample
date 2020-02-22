@@ -27,7 +27,7 @@ class Posts extends Component<{},{}> {
 
     loadSinglePost(postId:any,thisinstance:any)
     {
-        thisinstance.props.history.push('/posts/'+postId);
+        thisinstance.props.history.push('/posts/'+postId+"?serchedtext='bike'");
     }
 
     render() {
