@@ -18,13 +18,19 @@ class Cockpit extends Component<cockpitInterface,{}> {
 
     static contextType = AuthContext;
 
+    passdata(thisinstance:any)
+    {
+      this.context.receivedData="mysore";
+      //thisinstance.props.history.push("/posts");
+    }
+
     render() {
 
         return (
           <div>
                  <p>I am a Cockpit component</p>
-                 <button className="cockpitButton" onClick={this.context.login}>Login</button>
-                 <button className="cockpitButton" onClick={this.props.clicked}>pass data to person component</button>
+                 <button className="cockpitButton" onClick={this.context.login}>Login to set context data</button>
+                 <button className="cockpitButton" onClick={()=>this.passdata(this)}>Pass data</button>
           </div>
         );
       }

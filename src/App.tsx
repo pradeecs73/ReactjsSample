@@ -3,9 +3,15 @@ import './App.css';
 import Person from './components/Person/Person';
 import Cockpit  from './components/Cockpit/Cockpit';
 import AuthContext from './context/auth-context';
+import Blog from './container/Blog/Blog';
+import {BrowserRouter} from 'react-router-dom';
+import {Route,Switch,Redirect,Link} from 'react-router-dom';
+
+
 
 
 class App extends Component<{},{}> {
+
 
   constructor(props:any)
     {
@@ -13,88 +19,43 @@ class App extends Component<{},{}> {
     }
 
     state = {
-      persons: [
-        { id: 'asfa1', name: 'Max', age: 28 },
-        { id: 'vasdf1', name: 'Manu', age: 29 },
-        { id: 'asdf11', name: 'Stephanie', age: 26 }
-      ],
-      showPersons:false,
+      
       authenticated: false,
-      passsedData:"srirangapatna"
+      receivedData:""
+
     };
 
-    togglePersonsHandler = () => {
-      const doesShow = this.state.showPersons;
-      this.setState({ showPersons: !doesShow });
+    loginHandler = () => {
+     
+      this.setState({ authenticated: true });
     };
 
-    nameChangedHandler = (event:any, id:any) => {
-      const personIndex = this.state.persons.findIndex(p => {
-        return p.id === id;
-      });
-  
-      const person = {
-        ...this.state.persons[personIndex]
-      };
-  
-      // const person = Object.assign({}, this.state.persons[personIndex]);
-  
-      person.name = event.target.value;
-  
-      const persons = [...this.state.persons];
-      persons[personIndex] = person;
-  
-      this.setState({ persons: persons });
-    };
-
-    deletePersonHandler = (personIndex:any) => {
-      // const persons = this.state.persons.slice();
-      const persons = [...this.state.persons];
-      persons.splice(personIndex, 1);
-      this.setState({ persons: persons });
-    };
-
-    
-  loginHandler = () => {
-    this.setState({ authenticated: true });
-  };
-
-  paasDataToPersonComponent = (receivedData:any) =>{
-    this.setState({ passsedData: receivedData });
-  }
   
 
-  
     render() {
 
-        let persons = null;
-
-    if (this.state.showPersons) {
-        persons = (
-          <div>
-               {this.state.persons.map((person, index) => {
-              return (<div key={person.id} className="personDivision"><Person name={person.name} age={person.age} key={person.id} changed={(event:any) => this.nameChangedHandler(event, person.id)} clicked={() => this.deletePersonHandler(index)}>
-                      I am a child content
-                      </Person></div>)
-              })};
-          </div>
-        );
-    }
-     
         return (
-          <div className="App">
-              <button className="mybutton" onClick={this.togglePersonsHandler} >click me</button>
-                <AuthContext.Provider
-                    value={{
-                      authenticated: this.state.authenticated,
-                      login: this.loginHandler,
-                      passdata: this.state.passsedData
-                    }}
-                  >
-                    <Cockpit clicked={() => this.paasDataToPersonComponent("mysore")}></Cockpit>
-                    {persons}
-              </AuthContext.Provider>
-          </div>
+          <BrowserRouter>
+              <div className="App">
+                    <AuthContext.Provider
+                          value={{
+                            authenticated: this.state.authenticated,
+                            login: this.loginHandler,
+                            receivedData:this.state.receivedData
+                          }}
+                        >
+                        <Blog></Blog>
+
+                        <Switch>
+                          <Redirect exact from ="/" to="/posts"></Redirect>
+                          <Route exact path="/person"  component={Person}></Route>
+                          <Route exact path="/cockpit"  component={Cockpit}></Route>
+                          {/* <Route render={()=><h1>Not Found</h1>}></Route>*/}
+                        </Switch>  
+                       
+                    </AuthContext.Provider>
+              </div>
+          </BrowserRouter>
 
         );
 
