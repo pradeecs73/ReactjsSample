@@ -34,7 +34,7 @@ class Posts extends Component<{},{}> {
 
         const posts=this.state.posts.map((post:any) =>
             {
-                 return   ( <Post key={post.id} title={post.title} clicked={() => this.loadSinglePost(post.id,this)}></Post>) 
+                 return   ( <Post key={post.id} {...this.props} title={post.title} clicked={() => this.loadSinglePost(post.id,this)}></Post>) 
             }); 
             
         return(   

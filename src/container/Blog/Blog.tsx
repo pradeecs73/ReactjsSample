@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-
+import React, { Component,Suspense } from 'react';
 import  './Blog.css';
 import Posts from './../../components/Posts/Posts';
-import Newpost from './../../components/Newpost/Newpost';
+//import Newpost from './../../components/Newpost/Newpost';
 import Fullpost from './../../components/Fullpost/Fullpost';
-import Person from './../../components/Person/Person';
 import {Route,Switch,Redirect,Link} from 'react-router-dom';
-import Cockpit  from './../../components/Cockpit/Cockpit';
-
-import {Router,useHistory} from 'react-router';
+import asyncComponent from './../../hoc/asyncComponent';
 import AuthContext from './../../context/auth-context';
+
+const AsyncNewPost = asyncComponent(()=>{
+   return import('./../../components/Newpost/Newpost');
+});
+
+const Newpostcomponent=React.lazy(()=> import('./../../components/Newpost/Newpost'));
 
 
 
@@ -46,8 +48,12 @@ class Blog extends Component<{},{}> {
                   <Switch>
                     <Route exact path="/posts"  component={Posts}></Route>
                     <Route exact path="/posts/:id"  component={Fullpost}></Route>
-                     {this.context.authenticated ? <Route exact path="/newpost"  component={Newpost}></Route>:
-                      null}          
+                     {/*this.context.authenticated ? <Route exact path="/newpost"  component={AsyncNewPost}></Route>:
+                      null*/}   
+                    {this.context.authenticated ?<Route exact path="/newpost" render={()=>
+                        <Suspense  {...this.props} fallback={<div>loading</div>}>
+                        <Newpostcomponent />
+                    </Suspense>}></Route>:null}       
                  </Switch> 
             
 
