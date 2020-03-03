@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import  './Person.css';
 import AuthContext from './../../context/auth-context';
+import { connect } from 'react-redux';
 
 interface personInterface{
     name:string;
     age:number;
     changed:any;
     clicked:any;
+    ctr:any;
     
 }
 
@@ -78,6 +80,7 @@ class Person extends Component<personInterface,{}> {
               return (
 
                     <div className="personDivision" key={person.id}>
+                        <p>counter value:{this.props.ctr}</p>
                         <p>Received data {this.context.receivedData} </p>
                         <p onClick={()=>this.deletePerson(index)}> I'm {person.name} and I am {person.age} years old!</p>
                        <input type="text"  ref={this.inputElementRef}   value={person.name} onChange={(event)=>this.textChanged(event,person.id)} />
@@ -94,4 +97,12 @@ class Person extends Component<personInterface,{}> {
   }
 }
 
-  export default Person;
+const mapStateToProps = (state:any) => {
+  return {
+
+      ctr: state.ctr.counter,
+      storedResults: state.res.results
+  }
+};
+
+  export default connect(mapStateToProps, null)(Person); 
