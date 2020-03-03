@@ -16,7 +16,6 @@ const reducer = ( state = initialState, action:any) => {
 
          if(action.type === actionTypes.DELETE_RESULT)
          {
-            alert("5");
             const deletedUpdatedArrayFilter = [...state.results];
              deletedUpdatedArrayFilter.splice(action.resultElId, 1);   
             return {
