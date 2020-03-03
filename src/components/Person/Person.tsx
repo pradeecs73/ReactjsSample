@@ -35,6 +35,7 @@ class Person extends Component<personInterface,{}> {
 
     deletePerson = (personIndex:any) => {
       // const persons = this.state.persons.slice();
+      alert(personIndex);
       const persons = [...this.state.persons];
       persons.splice(personIndex, 1);
       this.setState({ persons: persons });
@@ -78,7 +79,7 @@ class Person extends Component<personInterface,{}> {
 
                     <div className="personDivision" key={person.id}>
                         <p>Received data {this.context.receivedData} </p>
-                        <p onClick={()=>this.deletePerson(person.id)}> I'm {person.name} and I am {person.age} years old!</p>
+                        <p onClick={()=>this.deletePerson(index)}> I'm {person.name} and I am {person.age} years old!</p>
                        <input type="text"  ref={this.inputElementRef}   value={person.name} onChange={(event)=>this.textChanged(event,person.id)} />
 
                     </div>

@@ -6,6 +6,7 @@ import AuthContext from './context/auth-context';
 import Blog from './container/Blog/Blog';
 import {BrowserRouter} from 'react-router-dom';
 import {Route,Switch,Redirect,Link} from 'react-router-dom';
+import Counter  from './components/Counter/Counter';
 
 
 
@@ -50,6 +51,7 @@ class App extends Component<{},{}> {
                           <Redirect exact from ="/" to="/posts"></Redirect>
                           <Route exact path="/person"  component={Person}></Route>
                           <Route exact path="/cockpit"  component={Cockpit}></Route>
+                          <Route exact path="/counter"  component={Counter}></Route>
                           {/* <Route render={()=><h1>Not Found</h1>}></Route>*/}
                         </Switch>  
                        

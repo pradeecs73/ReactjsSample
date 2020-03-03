@@ -40,6 +40,7 @@ class Blog extends Component<{},{}> {
                             <li><Link to="/newpost">New Post</Link></li>
                             <li><Link to="/person">Person</Link></li>
                             <li><Link to="/cockpit">Cockpit</Link></li>
+                            <li><Link to="/counter">Counter</Link></li>
                         </ul>
                     </nav>
                 </header>
