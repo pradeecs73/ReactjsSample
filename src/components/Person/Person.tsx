@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  './Person.css';
 import AuthContext from './../../context/auth-context';
 import { connect } from 'react-redux';
+import Personchild from './../Personchild/Personchild';
 
 interface personInterface{
     name:string;
@@ -15,6 +16,7 @@ interface personInterface{
 class Person extends Component<personInterface,{}> {
 
   state = {
+    childdata:"myinitialparentdata",
     persons: [
       { id: 'asfa1', name: 'Max', age: 28 },
       { id: 'vasdf1', name: 'Manu', age: 29 },
@@ -62,9 +64,46 @@ class Person extends Component<personInterface,{}> {
       this.setState({ persons: persons });
     };
 
+    modifydata(datafromchild:any){
+      this.setState({childdata:datafromchild})
+   }
+
+   static getDerivedStateFromProps(props:any,state:any)
+   {
+       return state;
+   }
+
     componentDidMount() {
       this.inputElementRef.current.focus();
     }
+
+    componentWillMount()
+    {
+
+    }
+
+    shouldComponentUpdate(nextprops:any,nextstate:any)
+    {
+
+       return true;
+    }
+
+    getSnapshotBeforeUpdate(prevprops:any,prevstate:any)
+    {
+       return null;
+    }
+
+   componentDidUpdate(prevprops:any,prevtate:any,snapshot:any)
+   {
+     
+   }
+
+   componentWillUpdate(prevprops:any,prevtate:any,snapshot:any)
+   {
+
+   }
+
+
   
 
 
@@ -89,6 +128,7 @@ class Person extends Component<personInterface,{}> {
 
                     )
               })};
+              <Personchild  modifydata={this.modifydata.bind(this)} parenttochilddate={this.state.childdata}/>
           </div>
         );
     }

@@ -4,7 +4,7 @@ import  './Post.css';
 interface postInterface{
     title:any,
     clicked:any,
-
+    id:any
 }
 
 class Post extends Component<postInterface,{}> {
@@ -16,7 +16,7 @@ class Post extends Component<postInterface,{}> {
 
     render() {
         return(   
-               <div className="Postblock" onClick={this.props.clicked}>
+               <div className="Postblock" onClick={()=>this.props.clicked(this.props.id,this)}>
                  <p>Title: {this.props.title}</p>
                </div>    
         )

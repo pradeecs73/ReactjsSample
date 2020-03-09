@@ -19,11 +19,9 @@ class FullPost extends Component<{},{}> {
        super(props);
        this.state.postId=props.match.params.id;
        this.state.queryParam=props.location.search;
-       
     }
 
     componentDidMount(){ 
-        
        const query:any = new URLSearchParams(this.state.queryParam);
         for (let param of query.entries()) {
             console.log(param[1]); 
@@ -52,7 +50,7 @@ class FullPost extends Component<{},{}> {
                     <h1>{this.state.loadedPost.title}</h1>
                     <p>{this.state.loadedPost.body}</p>
                     <div className="Edit">
-                        <button onClick={this.deletePostHandler} className="Delete">Delete</button>
+                        <button onClick={()=>this.deletePostHandler()} className="Delete">Delete</button>
                     </div>
                 </div>
 

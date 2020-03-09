@@ -25,10 +25,10 @@ class Counter extends Component<counterInterface,{}> {
         return(
             <div>
                <p>counter value:{this.props.ctr}</p>
-               <button onClick={this.props.onIncrementCounter}>Increment Counter</button><br/>
-               <button onClick={this.props.onAddCounter}>Add 10</button><br/>
-               <button onClick={this.props.onDecrementCounter}>Increment Counter</button><br/>
-               <button onClick={this.props.onSubtractCounter}>Subtract 10</button><br/>
+               <button onClick={()=>this.props.onIncrementCounter()}>Increment Counter</button><br/>
+               <button onClick={()=>this.props.onAddCounter()}>Add 10</button><br/>
+               <button onClick={()=>this.props.onDecrementCounter()}>Decrement Counter</button><br/>
+               <button onClick={()=>this.props.onSubtractCounter()}>Subtract 10</button><br/>
                <button onClick={() => this.props.onStoreResult(this.props.ctr)}>Store Result</button><br/>
                <ul>
                     {this.props.storedResults.map((strResult:any,index:any) => (
