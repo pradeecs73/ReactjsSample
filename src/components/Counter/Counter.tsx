@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import  './Counter.css';
 import { connect } from 'react-redux';
-import * as actionTypes from './../../store/actionsconstants';
+import * as actionTypes from '../../store/actions/actionsconstants';
+import * as actionCreators from '../../store/actions/index';
 
 interface counterInterface{
     onIncrementCounter:any;
@@ -52,12 +53,12 @@ const mapStateToProps = (state:any) => {
 
 const mapDispatchToProps = (dispatch:any) => {
     return {
-        onIncrementCounter: () => dispatch({type: actionTypes.INCREMENT}),
-        onDecrementCounter: () => dispatch({type: actionTypes.DECREMENT}),
-        onAddCounter: () => dispatch({type: actionTypes.ADD, val: 10}),
-        onSubtractCounter: () => dispatch({type: actionTypes.SUBTRACT, val: 10}),
-        onStoreResult: (result:any) => dispatch({type: actionTypes.STORE_RESULT, result: result}),
-        onDeleteResult: (counterIndex:any) => dispatch({type: actionTypes.DELETE_RESULT, resultElId: counterIndex})
+        onIncrementCounter: () => dispatch(actionCreators.increment()),
+        onDecrementCounter: () => dispatch(actionCreators.decrement()),
+        onAddCounter: () => dispatch(actionCreators.add(10)),
+        onSubtractCounter: () => dispatch(actionCreators.subtract(10)),
+        onStoreResult: (result:any) => dispatch(actionCreators.storeResult(result)),
+        onDeleteResult: (counterIndex:any) => dispatch(actionCreators.deleteResult(counterIndex))
     }
 };
 

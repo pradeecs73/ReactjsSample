@@ -1,4 +1,4 @@
-import * as actionTypes from './../actionsconstants';
+import * as actionTypes from '../actions/actionsconstants';
 
 const initialState:any = {
     results:[]
