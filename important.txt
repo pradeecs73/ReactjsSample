@@ -4,3 +4,4 @@ npm install --save @types/react-router
 npm install --save @types/react-router-dom
 npm install --save redux
 npm install --save @types/react-redux
+npm install --save redux-thunk
