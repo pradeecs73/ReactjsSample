@@ -1,10 +1,25 @@
 import * as actionTypes from './actionsconstants';
 
-export const storeResult = (res:any) => {
+
+export const saveResult = (res:any) => {
     return {
         type: actionTypes.STORE_RESULT,
         result: res
-    }; 
+    };
+}
+
+export const storeResult = (res:any) => {
+   /* return {
+        type: actionTypes.STORE_RESULT,
+        result: res
+    }; */
+    return (dispatch:any, getState:any) => {
+        setTimeout( () => {
+            const oldCounter = getState().ctr.counter;
+            console.log(oldCounter);
+            dispatch(saveResult(res));
+        }, 2000);
+    }
 };
 
 export const deleteResult = (resElId:any) => {

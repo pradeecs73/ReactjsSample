@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import  './Counter.css';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../store/actions/actionsconstants';
 import * as actionCreators from '../../store/actions/index';
 
 interface counterInterface{
