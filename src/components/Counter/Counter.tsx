@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  './Counter.css';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
+import $ from 'jquery';
 
 interface counterInterface{
     onIncrementCounter:any;

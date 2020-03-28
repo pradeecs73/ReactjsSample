@@ -5,12 +5,7 @@ import { connect } from 'react-redux';
 import Personchild from './../Personchild/Personchild';
 
 interface personInterface{
-    name:string;
-    age:number;
-    changed:any;
-    clicked:any;
-    ctr:any;
-    
+    ctr:any; 
 }
 
 class Person extends Component<personInterface,{}> {
@@ -19,8 +14,8 @@ class Person extends Component<personInterface,{}> {
     childdata:"myinitialparentdata",
     persons: [
       { id: 'asfa1', name: 'Max', age: 28 },
-      { id: 'vasdf1', name: 'Manu', age: 29 },
-      { id: 'asdf11', name: 'Stephanie', age: 26 }
+      { id: 'vasd1', name: 'Manu', age: 29 },
+      { id: 'asdf1', name: 'Stephanie', age: 26 }
     ],
     showPersons:true,
     authenticated: false,
@@ -39,7 +34,6 @@ class Person extends Component<personInterface,{}> {
 
     deletePerson = (personIndex:any) => {
       // const persons = this.state.persons.slice();
-      alert(personIndex);
       const persons = [...this.state.persons];
       persons.splice(personIndex, 1);
       this.setState({ persons: persons });
