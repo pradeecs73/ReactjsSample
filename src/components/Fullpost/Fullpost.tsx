@@ -17,6 +17,7 @@ class FullPost extends Component<{},{}> {
     {
      
        super(props);
+       console.log(props.match.path);
        this.state.postId=props.match.params.id;
        this.state.queryParam=props.location.search;
     }
