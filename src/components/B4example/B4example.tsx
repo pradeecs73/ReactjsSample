@@ -23,6 +23,15 @@ class B4example extends Component<{},{}> {
 
     }
 
+    getRatings=(rating:any)=>{
+
+        const starTotal = 5;
+        const starPercentage = (rating / starTotal) * 100;
+        const starPercentageRounded = `${(starPercentage / 10) * 10}%`;
+        return starPercentageRounded;
+
+    }
+
     componentWillMount(){ 
       
         $('.carousel').carousel();
@@ -42,6 +51,12 @@ class B4example extends Component<{},{}> {
                     <div className="stars-outer">
                        {this.state.rating?<div className="stars-inner"  style={this.getRating(4)}></div>
                        :<div className="stars-inner"  style={this.getRating(2)}></div>}
+                    </div><br></br>
+                    <div className="stars-outer">
+                      <div className="stars-inner"  style={this.state.rating?this.getRating(4):this.getRating(2)}></div>
+                    </div><br></br>
+                    <div className="stars-outer">
+                      <div className="stars-inner"  style={{width:this.state.rating?this.getRatings(4):this.getRatings(2)}}></div>
                     </div>
 
                     <div id="demo" className="carousel slide" data-ride="carousel">
