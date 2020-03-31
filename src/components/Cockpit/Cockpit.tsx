@@ -24,6 +24,25 @@ class Cockpit extends Component<cockpitInterface,{}> {
       //thisinstance.props.history.push("/posts");
     }
 
+    async asyncWait(thisinstance:any)
+    {
+      const result= await this.asyncWaitCalled();
+      console.log(result);
+      console.log("pradeep");
+    }
+
+    asyncWaitCalled=()=>{
+       
+      return new Promise((resolve,reject)=>{
+           
+          setTimeout(()=>{
+             resolve("data returned after resolved");
+          },5000);
+
+      });
+       
+    }
+
     render() {
 
         return (
@@ -31,6 +50,7 @@ class Cockpit extends Component<cockpitInterface,{}> {
                  <p>I am a Cockpit component</p>
                  <button className="cockpitButton" onClick={this.context.login}>Login to set context data</button>
                  <button className="cockpitButton" onClick={()=>this.passdata(this)}>Pass data</button>
+                 <button className="cockpitButton" onClick={()=>this.asyncWait(this)}>Async Wait</button>
           </div>
         );
       }
