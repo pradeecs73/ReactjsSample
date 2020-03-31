@@ -28,14 +28,14 @@ class FullPost extends Component<{},{}> {
             console.log(param[1]); 
         }
 
-        axios.get("https://jsonplaceholder.typicode.com/posts/"+this.state.postId)
+        axios.get("/posts/"+this.state.postId)
         .then(response =>{
                 this.setState({fullPostData:true,loadedPost:response.data});
         });
     }
 
     deletePostHandler = () => {
-        axios.delete('https://jsonplaceholder.typicode.com/posts/' + this.state.postId)
+        axios.delete('/posts/' + this.state.postId)
             .then(response => {
                 console.log(response);
             });
