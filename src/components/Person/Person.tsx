@@ -71,10 +71,10 @@ class Person extends Component<personInterface,{}> {
       this.inputElementRef.current.focus();
     }
 
-    componentWillMount()
+    /*componentWillMount()
     {
 
-    }
+    }*/
 
     shouldComponentUpdate(nextprops:any,nextstate:any)
     {
@@ -92,10 +92,10 @@ class Person extends Component<personInterface,{}> {
      
    }
 
-   componentWillUpdate(prevprops:any,prevtate:any,snapshot:any)
+   /*componentWillUpdate(prevprops:any,prevtate:any,snapshot:any)
    {
 
-   }
+   }*/
 
 
   

@@ -43,6 +43,20 @@ class Cockpit extends Component<cockpitInterface,{}> {
        
     }
 
+    async asyncWait1(thisinstance:any)
+    {
+      const result1= new Promise((resolve,reject)=>{
+
+        setTimeout(()=>{
+           resolve("data returned after resolved fromthe same function");
+         },5000);
+
+      });
+     const result2 =await result1;
+      console.log(result2);
+      console.log("pradeep");
+    }
+
     render() {
 
         return (
@@ -51,6 +65,7 @@ class Cockpit extends Component<cockpitInterface,{}> {
                  <button className="cockpitButton" onClick={this.context.login}>Login to set context data</button>
                  <button className="cockpitButton" onClick={()=>this.passdata(this)}>Pass data</button>
                  <button className="cockpitButton" onClick={()=>this.asyncWait(this)}>Async Wait</button>
+                 <button className="cockpitButton" onClick={()=>this.asyncWait1(this)}>Async Wait in the same function</button>
           </div>
         );
       }
