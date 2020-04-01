@@ -46,6 +46,7 @@ class B4example extends Component<{},{}> {
                     <div className="jumbotron text-center">
                         <h1>My First Bootstrap Page</h1>
                         <p>Resize this responsive page to see the effect!</p> 
+                        <img src={this.state.rating?"https://tineye.com/images/widgets/mona.jpg":""} alt="Los Angeles" width="250" height="100" />
                     </div>
 
                     <div className="stars-outer">
