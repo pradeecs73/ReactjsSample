@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import Personchild from './../Personchild/Personchild';
 
 interface personInterface{
-    ctr:any; 
+    ctr:any;
+    counterOperation:any; 
 }
 
 class Person extends Component<personInterface,{}> {
@@ -118,6 +119,7 @@ class Person extends Component<personInterface,{}> {
 
                     <div className="personDivision" key={person.id}>
                         <p>counter value:{this.props.ctr}</p>
+                       {this.props.counterOperation != ""?<p>counter operation:{this.props.counterOperation}</p>:null}
                         <p>Received data {this.context.receivedData} </p>
                         <p> {this.shortenData("shorten the text i studided engineering")} </p>
                         <p> {this.context.shortenData("shorten the text i studided engineering")} </p>
@@ -141,6 +143,7 @@ const mapStateToProps = (state:any) => {
   return {
 
       ctr: state.ctr.counter,
+      counterOperation:state.ctr.counterOperation,
       storedResults: state.res.results
   }
 };

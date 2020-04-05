@@ -51,6 +51,7 @@ const mapStateToProps = (state:any) => {
     return {
 
         ctr: state.ctr.counter,
+        counterOperation:state.ctr.counterOperation,
         storedResults: state.res.results
     }
 };
