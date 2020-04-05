@@ -3,6 +3,7 @@ import  './Counter.css';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 import $ from 'jquery';
+import AuthContext from './../../context/auth-context';
 
 interface counterInterface{
     onIncrementCounter:any;
@@ -22,10 +23,13 @@ class Counter extends Component<counterInterface,{}> {
        super(props);
     }
 
+    static contextType = AuthContext;
+
     render() {
         return(
             <div>
                <p>counter value:{this.props.ctr}</p>
+               <p> {this.context.shortenData("Bangalore is the capital of Karnatka")} </p>
                <button onClick={()=>this.props.onIncrementCounter()}>Increment Counter</button><br/>
                <button onClick={()=>this.props.onAddCounter()}>Add 10</button><br/>
                <button onClick={()=>this.props.onDecrementCounter()}>Decrement Counter</button><br/>
