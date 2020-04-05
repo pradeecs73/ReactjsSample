@@ -29,6 +29,11 @@ class App extends Component<{},{}> {
       this.setState({ authenticated: true });
     };
 
+
+    shortenText=(str:any)=>{
+
+         return str.substr(0,25);
+    }
   
 
     render() {
@@ -40,7 +45,8 @@ class App extends Component<{},{}> {
                           value={{
                             authenticated: this.state.authenticated,
                             login: this.loginHandler,
-                            receivedData:this.state.receivedData
+                            receivedData:this.state.receivedData,
+                            shortenData:this.shortenText
                           }}
                         >
                         <Blog></Blog>

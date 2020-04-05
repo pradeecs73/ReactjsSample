@@ -58,8 +58,12 @@ class Person extends Component<personInterface,{}> {
       this.setState({ persons: persons });
     };
 
-    modifydata(datafromchild:any){
+  modifydata(datafromchild:any){
       this.setState({childdata:datafromchild})
+   }
+
+   shortenData=(shortenString:any)=>{
+       return shortenString.substr(0,25);
    }
 
    static getDerivedStateFromProps(props:any,state:any)
@@ -115,6 +119,8 @@ class Person extends Component<personInterface,{}> {
                     <div className="personDivision" key={person.id}>
                         <p>counter value:{this.props.ctr}</p>
                         <p>Received data {this.context.receivedData} </p>
+                        <p> {this.shortenData("shorten the text i studided engineering")} </p>
+                        <p> {this.context.shortenData("shorten the text i studided engineering")} </p>
                         <p onClick={()=>this.deletePerson(index)}> I'm {person.name} and I am {person.age} years old!</p>
                        <input type="text"  ref={this.inputElementRef}   value={person.name} onChange={(event)=>this.textChanged(event,person.id)} />
 
