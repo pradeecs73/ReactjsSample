@@ -7,7 +7,34 @@ const initialState = {
 
 const reducer = ( state = initialState, action:any ) => {
 
-        if(action.type === actionTypes.INCREMENT){
+        switch(action.type){
+            case actionTypes.INCREMENT:
+                {
+                    const newState = Object.assign({}, state);
+                    newState.counter = state.counter + 1;
+                    newState.counterOperation="increment";
+                    return newState;
+                }
+            case actionTypes.ADD:
+                return {
+                        ...state,
+                        counter: state.counter + action.val,
+                        counterOperation:"add"
+                    }   
+             case actionTypes.DECREMENT:
+                return {
+                        ...state,
+                        counter: state.counter - 1,
+                        counterOperation:"decrement"
+                    }    
+             case actionTypes.SUBTRACT:
+                 return {
+                        ...state,
+                        counter: state.counter - action.val,
+                        counterOperation:"subtract"
+                    }   
+        }
+        /*if(action.type === actionTypes.INCREMENT){
             const newState = Object.assign({}, state);
             newState.counter = state.counter + 1;
             newState.counterOperation="increment";
@@ -37,7 +64,7 @@ const reducer = ( state = initialState, action:any ) => {
                 counter: state.counter - action.val,
                 counterOperation:"subtract"
             }
-        }
+        }*/
             
     
 
