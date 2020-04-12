@@ -83,18 +83,20 @@ class Person extends Component<personInterface,{}> {
 
     shouldComponentUpdate(nextprops:any,nextstate:any)
     {
-
+       console.log("1");
        return true;
     }
 
     getSnapshotBeforeUpdate(prevprops:any,prevstate:any)
     {
+       console.log("4");
        return null;
     }
 
    componentDidUpdate(prevprops:any,prevtate:any,snapshot:any)
    {
-     
+       console.log(snapshot);
+       console.log("5");
    }
 
    /*componentWillUpdate(prevprops:any,prevtate:any,snapshot:any)
