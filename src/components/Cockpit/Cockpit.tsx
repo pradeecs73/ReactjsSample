@@ -19,9 +19,9 @@ class Cockpit extends Component<cockpitInterface,{}> {
        
     }
 
-    componentDidMount(){
-    
-    }
+   componentWillUnmount(){
+     console.log("component is unmounting from page");
+   }
 
     static contextType = AuthContext;
 
