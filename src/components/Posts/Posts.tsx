@@ -21,6 +21,8 @@ class Posts extends Component<{},{}> {
         axios.get("/posts")
         .then(response =>{
                 this.setState({posts:response.data.slice(0,9)});
+        }).catch((error:any)=>{
+              console.log(error);
         });
         
     }

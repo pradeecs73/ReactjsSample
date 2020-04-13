@@ -28,9 +28,11 @@ class FullPost extends Component<{},{}> {
             console.log(param[1]); 
         }
 
-        axios.get("/posts/"+this.state.postId)
+      axios.get("/posts/"+this.state.postId)
         .then(response =>{
                 this.setState({fullPostData:true,loadedPost:response.data});
+        }).catch((error:any)=>{
+            console.log(error);
         });
     }
 
