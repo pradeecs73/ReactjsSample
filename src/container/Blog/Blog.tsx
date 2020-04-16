@@ -42,6 +42,7 @@ class Blog extends Component<{},{}> {
                             <li><Link to="/cockpit">Cockpit</Link></li>
                             <li><Link to="/counter">Counter</Link></li>
                             <li><Link to="/bootstrapexample">B4example</Link></li>
+                            <li><Link to="/Form">Form</Link></li>
                         </ul>
                     </nav>
                 </header>

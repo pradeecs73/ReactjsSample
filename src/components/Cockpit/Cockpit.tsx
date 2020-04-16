@@ -68,7 +68,7 @@ class Cockpit extends Component<cockpitInterface,{}> {
     render() {
            
         return (
-          <div>
+          <div style={{textAlign:"center"}}>
                  <p>I am a Cockpit component</p>
                  <button className="cockpitButton" onClick={this.context.login}>Login to set context data</button>
                  <button className="cockpitButton" onClick={()=>this.passdata(this)}>Pass data</button>

@@ -27,7 +27,7 @@ class Counter extends Component<counterInterface,{}> {
 
     render() {
         return(
-            <div>
+            <div style={{textAlign:"center"}}>
                <p>counter value:{this.props.ctr}</p>
                <p> {this.context.shortenData("Bangalore is the capital of Karnatka")} </p>
                <button onClick={()=>this.props.onIncrementCounter()}>Increment Counter</button><br/>

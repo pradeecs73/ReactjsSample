@@ -32,7 +32,7 @@ class B4example extends Component<{},{}> {
 
     }
 
-    componentWillMount(){ 
+    componentDidMount(){ 
       
         $('.carousel').carousel();
        
@@ -41,7 +41,7 @@ class B4example extends Component<{},{}> {
     render() {
 
         return(
-               <div>
+               <div style={{textAlign:"center"}}>
 
                     <div className="jumbotron text-center">
                         <h1>My First Bootstrap Page</h1>

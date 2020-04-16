@@ -8,6 +8,7 @@ import {BrowserRouter} from 'react-router-dom';
 import {Route,Switch,Redirect,Link} from 'react-router-dom';
 import Counter  from './components/Counter/Counter';
 import B4example  from './components/B4example/B4example';
+import Form  from './components/Forms/Form';
 
 
 class App extends Component<{},{}> {
@@ -56,6 +57,7 @@ class App extends Component<{},{}> {
                           <Route exact path="/person"  component={Person}></Route>
                           <Route exact path="/cockpit"  component={Cockpit}></Route>
                           <Route exact path="/counter"  component={Counter}></Route>
+                          <Route exact path="/Form"  component={Form}></Route>
                           <Route exact path="/bootstrapexample"  component={B4example}></Route>
                           {/* <Route render={()=><h1>Not Found</h1>}></Route>*/}
                         </Switch>  

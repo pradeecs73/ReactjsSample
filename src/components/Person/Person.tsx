@@ -115,11 +115,11 @@ class Person extends Component<personInterface,{}> {
 
       if (this.state.showPersons) {
         persons = (
-          <div>
+          <div style={{textAlign:"center"}}>
                {this.state.persons.map((person, index) => {
               return (
 
-                    <div className="personDivision" key={person.id}>
+                    <div className="personDivision"  key={person.id}>
                         <p>counter value:{this.props.ctr}</p>
                        {this.props.counterOperation != ""?<p>counter operation:{this.props.counterOperation}</p>:null}
                         <p>Received data {this.context.receivedData} </p>
