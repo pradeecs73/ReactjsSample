@@ -5,9 +5,12 @@ const initialState={
     name:"",
     email:"",
     password:"",
+    city:"",
     nameError:"",
     emailError:"",
-    PasswordError:""
+    passwordError:"",
+    cityError:""
+
 };
 
 class Form extends Component {
@@ -34,28 +37,35 @@ class Form extends Component {
     validateForm=()=>{
          let nameError="";
          let emailError="";
-         let PasswordError="";
+         let passwordError="";
+         let cityError="";
 
          if(this.state.name == ""){
             nameError="Invalid Name";
          }
 
          if(this.state.password == ""){
-            PasswordError="Invalid Password";
+            passwordError="Invalid Password";
          }
 
          if(!this.state.email.includes('@')){
             emailError="Invalid Email";
          }
 
+         if(this.state.city == ""){
+            cityError="Invalid City";
+         }
 
-         if(nameError||emailError || PasswordError )
+
+
+         if(nameError||emailError || passwordError || cityError)
          {
              this.setState({
                 nameError:nameError,
                 emailError:emailError,
-                PasswordError:PasswordError
-             })
+                passwordError:passwordError,
+                cityError:cityError
+             });
              
              return false;
          }
@@ -89,7 +99,7 @@ class Form extends Component {
                             <input type="password" name="password" className="form-control"  value={this.state.password} onChange={this.handleChange} placeholder="Password" />
                         </div>
                         <div style={{fontSize:12,color:'red'}}>
-                            {this.state.PasswordError}
+                            {this.state.passwordError}
                         </div>
 
                         <div className="form-group ">
@@ -99,6 +109,20 @@ class Form extends Component {
                         <div style={{fontSize:12,color:'red'}}>
                             {this.state.emailError}
                         </div>
+
+                        <div className="form-group ">
+                            <label >City</label>
+                            <select  name="city" className="form-control" value={this.state.city} onChange={this.handleChange}>
+                                <option value="">Select City</option>
+                                <option value="Bangalore">Bangalore</option>
+                                <option value="Mysore">Mysore</option>
+                            </select>    
+                        </div>
+
+                        <div style={{fontSize:12,color:'red'}}>
+                            {this.state.cityError}
+                        </div>
+
                        <div style={{textAlign:"center"}}>
                           <button type="submit" className="btn btn-primary">Submit</button>
                         </div>
