@@ -11,7 +11,7 @@ import thunk from 'redux-thunk';
 import axios from 'axios';
 
 axios.defaults.baseURL="https://jsonplaceholder.typicode.com";
-axios.defaults.headers.common['Authorization']="12345";
+//axios.defaults.headers.common['Authorization']="12345";
 
 axios.interceptors.request.use((request:any)=>{
      return request;

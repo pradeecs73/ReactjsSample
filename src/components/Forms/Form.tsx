@@ -6,10 +6,12 @@ const initialState={
     email:"",
     password:"",
     city:"",
+    gender:"",
     nameError:"",
     emailError:"",
     passwordError:"",
-    cityError:""
+    cityError:"",
+    genderError:""
 
 };
 
@@ -23,13 +25,9 @@ class Form extends Component {
     }
 
     handleChange=(event:any)=>{
-       const isCheckbox = event.target.type === "checkbox";
 
        this.setState({
-              [event.target.name]:isCheckbox
-              ?event.target.checked
-              :event.target.value
-
+              [event.target.name]:event.target.value
            });
 
     }
@@ -39,6 +37,7 @@ class Form extends Component {
          let emailError="";
          let passwordError="";
          let cityError="";
+         let genderError="";
 
          if(this.state.name == ""){
             nameError="Invalid Name";
@@ -56,15 +55,21 @@ class Form extends Component {
             cityError="Invalid City";
          }
 
+         
+         if(this.state.gender == ""){
+            genderError="Invalid Gender";
+         }
 
 
-         if(nameError||emailError || passwordError || cityError)
+
+         if(nameError||emailError || passwordError || cityError || genderError)
          {
              this.setState({
                 nameError:nameError,
                 emailError:emailError,
                 passwordError:passwordError,
-                cityError:cityError
+                cityError:cityError,
+                genderError:genderError
              });
              
              return false;
@@ -104,7 +109,7 @@ class Form extends Component {
 
                         <div className="form-group ">
                             <label >Email address</label>
-                            <input type="email" name="email" className="form-control" value={this.state.email} onChange={this.handleChange} placeholder="Enter email" />
+                            <input type="text" name="email" className="form-control" value={this.state.email} onChange={this.handleChange} placeholder="Enter email" />
                         </div>
                         <div style={{fontSize:12,color:'red'}}>
                             {this.state.emailError}
@@ -122,6 +127,26 @@ class Form extends Component {
                         <div style={{fontSize:12,color:'red'}}>
                             {this.state.cityError}
                         </div>
+
+                      <div>
+
+                            <div>
+                              <label>Gender</label>                       
+                            </div>
+
+                            <div className="form-check checkBox">
+                                    <input type="radio" className="form-check-input" name="gender"  value="male" onChange={this.handleChange} />Male                       
+                            </div>
+
+                            <div className="form-check checkBox" style={{marginLeft:"20px"}}>
+                                    <input type="radio" className="form-check-input" name="gender"  value="female" onChange={this.handleChange} />Female                           
+                            </div>
+
+                            <div style={{fontSize:12,color:'red'}}>
+                               {this.state.genderError}
+                            </div>
+
+                        </div> 
 
                        <div style={{textAlign:"center"}}>
                           <button type="submit" className="btn btn-primary">Submit</button>
