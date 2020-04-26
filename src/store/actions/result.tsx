@@ -23,8 +23,23 @@ export const storeResult = (res:any) => {
 };
 
 export const deleteResult = (resElId:any) => {
-    return {
+  /*  return {
         type: actionTypes.DELETE_RESULT,
         resultElId: resElId
+    };*/
+
+    return {
+        type: actionTypes.DELETE_RESULT_SAGA,
+        resultElId: resElId
     };
+
 };
+
+
+export const deleteResultSaga = (resElId:any) => {
+      return {
+          type: actionTypes.DELETE_RESULT,
+          resultElId: resElId
+      };
+  
+  };

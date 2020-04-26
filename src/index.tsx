@@ -8,7 +8,10 @@ import { createStore, combineReducers,applyMiddleware, compose } from 'redux';
 import counterReducer from './store/reducers/counter';
 import resultReducer from './store/reducers/result';
 import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import axios from 'axios';
+import {sagaDeleteResult} from './store/Sagas/resultindex';
+
 
 axios.defaults.baseURL="https://jsonplaceholder.typicode.com";
 //axios.defaults.headers.common['Authorization']="12345";
@@ -30,9 +33,12 @@ const rootReducer = combineReducers({
     res: resultReducer
 });
 
-const composeEnhancers =(window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+const sagaMiddleware=createSagaMiddleware();
 
+const composeEnhancers =(window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk,sagaMiddleware)));
+
+sagaMiddleware.run(sagaDeleteResult);
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
