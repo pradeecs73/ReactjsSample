@@ -6,3 +6,6 @@ npm install --save redux
 npm install --save @types/react-redux
 npm install --save redux-thunk
 npm install --save redux-saga
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+
