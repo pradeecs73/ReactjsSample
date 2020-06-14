@@ -93,7 +93,7 @@ class Person extends Component<personInterface,{}> {
        return null;
     }
 
-   componentDidUpdate(prevprops:any,prevtate:any,snapshot:any)
+   componentDidUpdate(prevprops:any,prevstate:any,snapshot:any)
    {
        console.log(snapshot);
        console.log("5");
