@@ -9,6 +9,8 @@ import {Route,Switch,Redirect,Link} from 'react-router-dom';
 import Counter  from './components/Counter/Counter';
 import B4example  from './components/B4example/B4example';
 import Form  from './components/Forms/Form';
+import Ingredients  from './components/Ingredients/Ingredients';
+
 
 
 class App extends Component<{},{}> {
@@ -59,6 +61,8 @@ class App extends Component<{},{}> {
                           <Route exact path="/counter"  component={Counter}></Route>
                           <Route exact path="/Form"  component={Form}></Route>
                           <Route exact path="/bootstrapexample"  component={B4example}></Route>
+                          <Route exact path="/ingredients"  component={Ingredients}></Route>
+                         
                           {/* <Route render={()=><h1>Not Found</h1>}></Route>*/}
                         </Switch>  
                        
