@@ -1,16 +1,15 @@
-.ingredient-form {
+.container{
     width: 30rem;
     margin: 2rem auto;
     max-width: 80%;
   }
   
-  .form-control label,
-  .form-control input {
-    display: block;
+  .form-group label,
+  .form-group input {
     width: 100%;
   }
   
-  .form-control input {
+  .form-group input {
     font: inherit;
     padding: 0.1rem 0.25rem;
     border: none;
@@ -18,14 +17,10 @@
     margin-bottom: 1rem;
   }
   
-  .form-control input:focus {
+  .form-group input:focus {
     outline: none;
-    border-bottom-color: #ff2058;
+
   }
   
-  .ingredient-form__actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  
   

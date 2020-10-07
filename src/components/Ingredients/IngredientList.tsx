@@ -1,4 +1,5 @@
 import React from 'react';
+import './IngredientList.css';
 
 const IngredientList = (props:any) => {
   return (

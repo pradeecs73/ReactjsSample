@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import './Search.css';
 
 const Search = (props:any) => {
 
