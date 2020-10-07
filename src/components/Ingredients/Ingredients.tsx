@@ -1,7 +1,8 @@
-import React, {useState, useEffect, useCallback ,useReducer,useMemo} from 'react';
+import React, {useState, useEffect, useCallback ,useReducer,useMemo,useContext} from 'react';
 import IngredientForm from './IngredientForm';
 import IngredientList from './IngredientList';
 import Search from './Search';
+import AuthContext from './../../context/auth-context';
 
 const ingredientReducer = (currentIngredients:any, action:any) => {
   switch (action.type) {
@@ -20,6 +21,7 @@ const ingredientReducer = (currentIngredients:any, action:any) => {
 const Ingredients= () => {
 
   const [userIngredients, dispatch] = useReducer(ingredientReducer, []);
+  const authContext=useContext(AuthContext);
  // const [userIngredients, setUserIngredients] = useState<string[]>([]);
 
   useEffect(() => {
@@ -63,6 +65,7 @@ const Ingredients= () => {
 
   return (<div style={{textAlign:"center"}} className="Ingredient">
          <p>I am a ingredient Component </p>
+         {authContext.shortenData("shorten the text i studided engineering")}
          <IngredientForm onAddIngredient={addIngredientHandler} />
          <Search ingredients={userIngredients} onLoadIngredients={filteredIngredientsHandler}/>
          {/*<IngredientList
