@@ -44,6 +44,7 @@ class Blog extends Component<{},{}> {
                             <li><Link to="/bootstrapexample">B4example</Link></li>
                             <li><Link to="/Form">Form</Link></li>
                             <li><Link to="/ingredients">Ingredients</Link></li>
+                            <li><Link to="/arrayopeartion">Array opeartion</Link></li>
                         </ul>
                     </nav>
                 </header>

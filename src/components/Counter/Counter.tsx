@@ -36,9 +36,9 @@ class Counter extends Component<counterInterface,{}> {
                <button onClick={()=>this.props.onSubtractCounter()}>Subtract 10</button><br/>
                <button onClick={() => this.props.onStoreResult(this.props.ctr)}>Store Result</button><br/>
                <ul>
-                    {this.props.storedResults.map((strResult:any,index:any) => (
-                        <li key={strResult.id} onClick={() => this.props.onDeleteResult(index)}>{strResult.value}</li>
-                    ))}
+                    {this.props.storedResults.map((strResult:any,index:any) => {
+                      return  <li key={strResult.id} onClick={() => this.props.onDeleteResult(index)}>{strResult.value}</li>
+                    })}
                 </ul>
             </div>
         )
