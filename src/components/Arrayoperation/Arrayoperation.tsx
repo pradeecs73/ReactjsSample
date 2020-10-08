@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import  './Arrayoperation.css';
 
 class Arrayoperation extends Component<{},{}> {
 
@@ -52,6 +53,42 @@ class Arrayoperation extends Component<{},{}> {
     objectOperations()
     {
       
+        const object1={"name":"pradeep","age":25};
+
+        console.log(Object.keys(object1));
+
+        console.log(Object.values(object1));
+
+        console.log(Object.entries(object1));
+
+        const object2:any={"name":"pradeep","age":25,"height":26,"weight":28};
+
+        const array1=[{"name":"pradeep","age":25}];
+
+        const objectasaign=Object.assign({...object1},{...object2});
+
+        console.log(objectasaign);
+
+        var object1copy=Object.assign({},object1)
+
+        console.log(object1copy);
+
+        var array1copy=Object.assign([],array1)
+
+        console.log(array1copy);
+
+        for(const property in object2)
+        {
+              if(object2.hasOwnProperty(property)){
+                  console.log(property + "----------"+ object2[property]);
+              }
+        }
+
+        for(const [key,value] of Object.entries(object2))
+        {
+              console.log(`${key}`+"------"+`${value}`);
+        }
+
 
     }
 
@@ -108,18 +145,29 @@ class Arrayoperation extends Component<{},{}> {
          console.log(param);
     }
 
+    passingFunctionAsParameter(callback:any,number:any){
+        callback(number*10);
+   }
+
+   callBackFunction(number:any){
+    console.log(number);
+  }
+
 
     render() {
            
         return (
-          <div style={{textAlign:"center"}}>
+          <div  style={{textAlign:"center"}}>
                  <p>Please click buttons to find array reduce and object operations</p>
+                 <div className="arrayoperation">
                  <button className="arrayoperationButton" onClick={()=>this.reduceArray()}>Reducing Array</button>
                  <button className="arrayopeartionButton" onClick={()=>this.objectOperations()}>Object Operations</button>
                  <button className="arrayopeartionButton" onClick={()=>this.removeDuplicat()}>Remove Duplicate</button>
                  <button className="arrayopeartionButton" onClick={()=>this.sortingArray()}>Sorting Array of objects based on key</button>
                  <button className="arrayopeartionButton" onClick={()=>this.mapAndEvery()}>Map and every</button>
                  <button className="arrayopeartionButton" onClick={()=>this.passingParameterToSpreadOperator(20,40,80,100)}>passing parameter to spread opearator</button>
+                 <button className="arrayopeartionButton" onClick={()=>this.passingFunctionAsParameter(this.callBackFunction,25)}>passing function as a parameter</button>
+                 </div>
           </div>
         );
       }
