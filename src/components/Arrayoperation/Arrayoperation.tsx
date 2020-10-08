@@ -4,7 +4,11 @@ class Arrayoperation extends Component<{},{}> {
 
     state = {
         numbers:[1,1,2,2,3,3,4,5,5],
-        students:[{"name":"pradeep","age":25},{"name":"abhi","age":20}]
+        students:[{"name":"pradeep","age":25},{"name":"abhi","age":20}],
+        reduceArray:[
+                      {"id":1,profile:[{"name":"pradeep","age":25}]},
+                      {"id":2,profile:[{"name":"abhi","age":20}]}
+                    ]
       };
 
     constructor(props:any)
@@ -15,7 +19,33 @@ class Arrayoperation extends Component<{},{}> {
 
     reduceArray()
     {
-      
+       let finalarray:any=[];
+
+       const reducedArray:any= [...this.state.reduceArray];
+
+       finalarray=reducedArray.reduce((profile:any,profileobj:any)=>{
+
+         const profileAge=profileobj.profile.reduce((profile1:any,profileinsideobj:any)=>{
+                  profile1.push(profileinsideobj.age);
+                  return profile1;
+         },[]);
+
+         profile.push(...profileAge);
+         return profile;
+
+       },[])
+
+       let sumarray:any=[];
+       const numberArray:any = [...this.state.numbers];
+
+       sumarray=numberArray.reduce((sum:any,numberobj:any)=>{
+              return sum+numberobj;
+       },0)
+
+       console.log(finalarray);
+       console.log(sumarray);
+
+       return finalarray;
 
     }
 
@@ -74,6 +104,10 @@ class Arrayoperation extends Component<{},{}> {
         console.log(myNewArrayCheck2);
     }
 
+    passingParameterToSpreadOperator(...param:any){
+         console.log(param);
+    }
+
 
     render() {
            
@@ -85,6 +119,7 @@ class Arrayoperation extends Component<{},{}> {
                  <button className="arrayopeartionButton" onClick={()=>this.removeDuplicat()}>Remove Duplicate</button>
                  <button className="arrayopeartionButton" onClick={()=>this.sortingArray()}>Sorting Array of objects based on key</button>
                  <button className="arrayopeartionButton" onClick={()=>this.mapAndEvery()}>Map and every</button>
+                 <button className="arrayopeartionButton" onClick={()=>this.passingParameterToSpreadOperator(20,40,80,100)}>passing parameter to spread opearator</button>
           </div>
         );
       }
