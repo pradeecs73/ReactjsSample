@@ -153,6 +153,19 @@ class Arrayoperation extends Component<{},{}> {
     console.log(number);
   }
 
+  arrayFilter(){
+
+    let studentsArray:any = [...this.state.students];
+
+    let filteredStudents=studentsArray.filter((filteredObjecte:any)=>{
+           return (filteredObjecte.name === 'pradeep');
+    });
+
+    console.log(filteredStudents);
+    
+  }
+
+
 
     render() {
            
@@ -167,6 +180,7 @@ class Arrayoperation extends Component<{},{}> {
                  <button className="arrayopeartionButton" onClick={()=>this.mapAndEvery()}>Map and every</button>
                  <button className="arrayopeartionButton" onClick={()=>this.passingParameterToSpreadOperator(20,40,80,100)}>passing parameter to spread opearator</button>
                  <button className="arrayopeartionButton" onClick={()=>this.passingFunctionAsParameter(this.callBackFunction,25)}>passing function as a parameter</button>
+                 <button className="arrayopeartionButton" onClick={()=>this.arrayFilter()}>Filter an array</button>
                  </div>
           </div>
         );
