@@ -1,0 +1,41 @@
+Data types in javascript
+
+Difference between undeclared and undefined
+
+Hosting in java script
+
+what is callback functions
+
+Difference between shallow copy and deep copy
+
+what is named and anonymous functions
+
+what is pure functions
+
+promise and async and await
+
+what is call apply and bind
+
+inheritance and overriding concepts in javascript
+
+Difference between splice, slice and string operations in javascript
+
+what is the use of split and join
+
+Making a object propery non editable
+
+Difference between split and spread operators
+ 
+Difference between var,let and const
+
+what is the use of arrow function
+
+what is the difference between map , filder , each and reduce
+
+what is use of every method
+
+Difference between promise and observables
+
+Flex property of css with justify content , align items , flex wrap
+
+
