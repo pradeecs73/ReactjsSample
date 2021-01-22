@@ -24,13 +24,13 @@ what is the use of split and join
 
 Making a object propery non editable
 
-Difference between split and spread operators
+Difference between spread and rest operators
  
 Difference between var,let and const
 
 what is the use of arrow function
 
-what is the difference between map , filder , each and reduce
+what is the difference between map , filter , each and reduce
 
 what is use of every method
 
