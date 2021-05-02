@@ -1,10 +1,14 @@
 #main {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
   }
   
   #main div {
-    width: 120px;
+    width: auto;
     height: 50px;
+  }
+
+  #para{
+     text-align: center;
   }
