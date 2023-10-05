@@ -13,6 +13,13 @@ import axios from 'axios';
 import {sagaDeleteResult} from './store/Sagas/resultindex';
 
 
+ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+
 axios.defaults.baseURL="https://jsonplaceholder.typicode.com";
 //axios.defaults.headers.common['Authorization']="12345";
 

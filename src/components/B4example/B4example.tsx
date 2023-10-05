@@ -33,8 +33,8 @@ class B4example extends Component<{},{}> {
     }
 
     componentDidMount(){ 
-      
-        $('.carousel').carousel();
+  
+       // $('.carousel').cor();
        
     }
 
