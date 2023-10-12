@@ -59,8 +59,12 @@ class Person extends Component<personInterface,{}> {
       this.setState({ persons: persons });
     };
 
-  modifydata(datafromchild:any){
+  /*modifydata(datafromchild:any){
       this.setState({childdata:datafromchild})
+   }*/
+
+   modifydata=(datafromchild:any)=>{
+    this.setState({childdata:datafromchild})
    }
 
    shortenData=(shortenString:any)=>{
@@ -132,7 +136,8 @@ class Person extends Component<personInterface,{}> {
 
                     )
               })};
-              <Personchild  modifydata={this.modifydata.bind(this)} parenttochilddate={this.state.childdata}/>
+             {/*<Personchild  modifydata={this.modifydata.bind(this)} parenttochilddate={this.state.childdata}/>*/}
+              <Personchild  modifydata={this.modifydata} parenttochilddate={this.state.childdata}/>
           </div>
         );
     }
