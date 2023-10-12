@@ -45,6 +45,9 @@ const Counterfunc = React.memo((props:any) => {
          <div>
             <button onClick={()=>dispatch(actionCreators.increment())}>Increment Counter with hook</button><br/>
          </div>
+         <div>
+            <button onClick={()=>dispatch(actionCreators.decrement())}>Decrement Counter with hook</button><br/>
+         </div>
       </div> 
       
       <div id='para'>
