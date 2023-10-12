@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component ,PureComponent} from 'react';
 import  './Person.css';
 import AuthContext from './../../context/auth-context';
 import { connect } from 'react-redux';

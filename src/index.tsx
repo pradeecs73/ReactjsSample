@@ -12,14 +12,6 @@ import createSagaMiddleware from 'redux-saga';
 import axios from 'axios';
 import {sagaDeleteResult} from './store/Sagas/resultindex';
 
-
-ReactDOM.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-
 axios.defaults.baseURL="https://jsonplaceholder.typicode.com";
 //axios.defaults.headers.common['Authorization']="12345";
 
@@ -46,7 +38,7 @@ const composeEnhancers =(window && (window as any).__REDUX_DEVTOOLS_EXTENSION_CO
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk,sagaMiddleware)));
 
 sagaMiddleware.run(sagaDeleteResult);
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<React.StrictMode><Provider store={store}><App /></Provider></React.StrictMode>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
