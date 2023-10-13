@@ -6,7 +6,7 @@ function postsfetch(){
 }
 
 function postfetch1(){
-    let data={name:"pradeep"}
+    let data={name:"sample"}
     return  fetch('https://jsonplaceholder.typicode.com/posts',{method: "POST",body:JSON.stringify(data)}).then(response=>response.json());
 }
 
