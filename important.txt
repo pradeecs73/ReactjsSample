@@ -1,5 +1,6 @@
 npm install -g create-react-app
 npx create-react-app applicationname --typescript
+npx create-react-app my-app --template typescript
 npm install --save axios
 npm install --save @types/react-router
 npm install --save @types/react-router-dom
