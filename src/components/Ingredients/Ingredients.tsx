@@ -63,6 +63,13 @@ const Ingredients= () => {
     );
   }, [userIngredients, removeIngredientHandler]);
 
+  const PElement= (props:any) => {
+    const {number}=props;
+    return (
+      <p>pradeep {number} </p>
+    );
+  };
+
   return (<div style={{textAlign:"center"}} className="Ingredient">
          <p>I am a ingredient Component </p>
          {authContext.shortenData("shorten the text i studided engineering")}
@@ -73,6 +80,8 @@ const Ingredients= () => {
           onRemoveItem={removeIngredientHandler}
          />*/}
          {ingredientList}
+         <p>pradeep</p>
+         <PElement number={20} />
     </div>);
 };
 
