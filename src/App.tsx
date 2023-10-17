@@ -12,6 +12,7 @@ import Form  from './components/Forms/Form';
 import Ingredients  from './components/Ingredients/Ingredients';
 import Arrayoperation  from './components/Arrayoperation/Arrayoperation';
 import Counterfunc  from './components/Counterfunc/Counterfunc';
+import ReactTesting  from './components/ReactTesting/ReactTesting';
 
 
 
@@ -66,6 +67,7 @@ class App extends Component<{},{}> {
                           <Route exact path="/ingredients"  component={Ingredients}></Route>
                           <Route exact path="/counterfunc"  component={Counterfunc}></Route>
                           <Route exact path="/arrayopeartion"  component={Arrayoperation}></Route>
+                          <Route exact path="/reacttesting"  component={ReactTesting}></Route>
                          
                           {/* <Route render={()=><h1>Not Found</h1>}></Route>*/}
                         </Switch>  
